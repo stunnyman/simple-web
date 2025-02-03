@@ -6,9 +6,8 @@ data:
   APP_ENV: "qa"
   LOG_LEVEL: "debug"
 
-#   name: python-secret
----
 # type: Opaque
+---
 # data:
 #   API_KEY: "base64-encoded-api-key"
 # ---
@@ -28,7 +27,7 @@ spec:
     spec:
       containers:
         - name: python
-          image: serhiipavlenko.azurecr.io/pythonflask:latest
+          image: serhiipavlenko.azurecr.io/pythonflask:v0.3
           ports:
             - containerPort: 8080
           env:
