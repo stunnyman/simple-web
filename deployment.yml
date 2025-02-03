@@ -6,9 +6,8 @@ data:
   APP_ENV: "qa"
   LOG_LEVEL: "debug"
 
-# kind: Secret
----
 # metadata:
+---
 #   name: python-secret
 # type: Opaque
 # data:
@@ -19,7 +18,7 @@ kind: Deployment
 metadata:
   name: python
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: python
