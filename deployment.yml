@@ -6,9 +6,8 @@ data:
   APP_ENV: "qa"
   LOG_LEVEL: "debug"
 
-# apiVersion: v1
----
 # kind: Secret
+---
 # metadata:
 #   name: python-secret
 # type: Opaque
@@ -20,7 +19,7 @@ kind: Deployment
 metadata:
   name: python
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: python
@@ -46,6 +45,7 @@ spec:
                   name: python-config
                   key: LOG_LEVEL
           # - name: API_KEY
+
 #   valueFrom:
 #     secretKeyRef:
 #       name: python-secret
