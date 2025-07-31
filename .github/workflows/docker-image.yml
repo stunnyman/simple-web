@@ -13,6 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Docker Login to private registry
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      
     - name: Build the Docker image
       run: docker build -t stunnyman/ng:stable
     - name: Push the Docker image
